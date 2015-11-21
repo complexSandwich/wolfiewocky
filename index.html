@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- TODO favicon -->
+        <title>Wolfiewocky - Alice, Marvel/DC comics, Archie, and more!</title>
+        
+        <!-- CSS -->
+        
+        <!-- JS -->
+    </head>
+    
+    <body>
+        <header role='banner'>
+            <div class='brand' aria-label='Wolfiewocky'>
+                Wolfiewocky
+                <img src='smile TODO' alt='Cheshire cat smile' />
+            </div>
+            
+            <div class='search-bar desktop' role='search'>
+                <input class='search-bar__box' type='text' name='search' aria-label='Search' />
+                <button class='search-bar__btn' type='button'></button>
+            </div>
+            
+            <div class='header__btns'>
+                <button class='search-btn mobile' type='button'>mag</button>
+                <button class='faq-btn--small mobile' type='button'>?</button>
+                <button class='paypal-btn' type='button'>View Cart</button>
+                <button class='faq-btn--big desktop' type='button'></button>
+            </div>
+        </header>
+        
+        <div class='content'>
+            <div class='filter-sidebar desktop' aria-label='Filters and sorting'>
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                    <fieldset>
+                        <legend>Sort by:</legend>
+                        <div>
+                            <input type='radio' name='sort' id='lbl--sort-name' value='name' />
+                            <label for='lbl--sort-name'>Name</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='sort' id='lbl--sort-price' value='price' />
+                            <label for='lbl--sort-price'>Price</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                    <fieldset>
+                        <legend>Price:</legend>
+                        <div>
+                            <input type='radio' name='price' id='lbl--price-ten' value='10' />
+                            <label for='lbl--price-ten'>< $10</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='price' id='lbl--price-ten-twenty' value='10-20' />
+                            <label for='lbl--price-ten-twenty'>$10 - $20</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='price' id='lbl--price-twenty-fifty' value='20-50' />
+                            <label for='lbl--price-twenty-fifty'>$20 - $50</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='price' id='lbl--price-fifty-hundred' value='50-100' />
+                            <label for='lbl--price-fifty-hundred'>$50 - $100</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='price' id='lbl--price-hundred' value='100' />
+                            <label for='lbl--price-hundred'>$100+</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                    <fieldset>
+                        <legend>Category:</legend>
+                        <div>
+                            <input type='radio' name='category' id='lbl--category-alice' value='alice' />
+                            <label for='lbl--category-alice'>Alice</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='category' id='lbl--category-marvel' value='marvel' />
+                            <label for='lbl--category-marvel'>Marvel</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='category' id='lbl--category-dc' value='dc' />
+                            <label for='lbl--category-dc'>DC</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='category' id='lbl--category-archie' value='archie' />
+                            <label for='lbl--category-archie'>Archie</label>
+                        </div>
+                        <div>
+                            <input type='radio' name='category' id='lbl--category-other' value='other' />
+                            <label for='lbl--category-other'>Other</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--recent'>
+                    <fieldset>
+                        <div>
+                            <input type='checkbox' name='recent' id='lbl--recent' value='recent' />
+                            <label for='lbl--recent'>Only recently added</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div><!-- /filter-sidebar -->
+            
+            <div class='cards'>
+                <div class='card'>
+                    <img src='TODO' alt='' />
+                    <div class='card--name'>Name1</div>
+                    <div class='card--price'>$42.42</div>
+                    <button class='card--btn paypal-btn desktop' type='button'>Add to cart</button>
+                    <div class='card--description desktop'>This is the long text description</div>
+                </div>
+            </div>
+        </div> <!-- /content -->
+        
+        <footer role='contentinfo'>
+            <a href='mailto:wolfiewock@wolfiewocky.com'>
+                <img src='email TODO' alt='Email: ' />
+                wolfiewock@wolfiewocky.com
+            </a>
+            
+            <button class='jump-btn' type='button'>^ Jump to Top</button>
+            
+            <div class='quote'>"This is a rotating quote." - Somebody</div>
+        </footer>
+    </body>
+</html>

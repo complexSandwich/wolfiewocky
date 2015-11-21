@@ -1,0 +1,35 @@
+page
+    header
+        logo/title
+            title
+            logo
+        search bar (desktop only)
+            search bar
+            search/submit button
+        buttons
+            search circle button (mobile only)
+            faq circle button (mobile only)
+            cart button
+            faq square button (desktop only)
+
+    content
+        filter bar (desktop only)
+            sort by
+            price filter
+            category filter
+            most recent toggle
+
+        filter button (mobile only)
+        cards
+            card1, 2, 3, etc
+                image
+                name
+                price
+                add to cart (desktop only)
+                text description (desktop only)
+
+    footer
+        email icon
+        email text
+        jump to top button
+        rotating quote (desktop only)
