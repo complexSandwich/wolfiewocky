@@ -13,31 +13,58 @@
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- /Materialize setup -->
+            <link type="text/css" rel="stylesheet" href="style.css" />
         
         <!-- CSS -->
     </head>
     
     <body>
         <header role='banner'>
-            <div class='brand' aria-label='Wolfiewocky'>
-                Wolfiewocky
-                <img src='smile TODO' alt='Cheshire cat smile' />
-            </div>
-            
-            <div class='search-bar desktop' role='search'>
-                <input class='search-bar__box' type='text' name='search' aria-label='Search' />
-                <button class='search-bar__btn' type='button'></button>
-            </div>
-            
-            <div class='header__btns'>
-                <button class='search-btn mobile' type='button'>mag</button>
-                <button class='faq-btn--small mobile' type='button'>?</button>
-                <button class='paypal-btn' type='button'>View Cart</button>
-                <button class='faq-btn--big desktop' type='button'></button>
-            </div>
+            <nav class='row light-blue-text text-accent-3'>
+                <div class='brand nav-wraper col s6' aria-label='Wolfiewocky'>
+                    <div class="center-align">Wolfiewocky</div>
+                    <img class="center-align" src='smile TODO' alt='Cheshire cat smile' />
+                </div>
+
+                <div class="col s6">
+                    <div class="row">
+                        <div class='search-bar desktop' role='search'>
+                            <input class='search-bar__box' type='text' name='search' aria-label='Search' />
+                            <button class='search-bar__btn' type='button'></button>
+                        </div>
+
+                        <div class='header__btns'>
+                            <div class="mobile row">
+                                <div class="col s6">
+                                    <div class="center-align">
+                                        <button class='faq-btn--small btn-floating blue waves-effect waves-light' type='button'>?</button>
+                                    </div>
+                                </div>
+                                <div class="col s6">
+                                    <div class="center-align">
+                                        <button class='search-btn btn-floating blue waves-effect waves-light' type='button'>
+                                            <i class='search-btn--icon small material-icons' alt='Search' />search</i>
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row center-align">
+                                <button class='paypal-btn btn blue waves-effect waves-light' type='button'>View Cart</button>
+                            </div>
+                            <button class='faq-btn--big desktop' type='button'></button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </header>
         
-        <div class='content'>
+        <main class='content'>
+            
+            <div class="row">
+                <div class="col s1">&nbsp;<!-- Dummy div because offset is currently broken --></div>
+                <button class="filter-btn mobile btn col s10 center-align blue waves-effect waves-light">Filter</button>
+            </div>
+            
             <div class='filter-sidebar desktop' aria-label='Filters and sorting'>
                 <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
                     <fieldset>
@@ -115,26 +142,44 @@
                 </div>
             </div><!-- /filter-sidebar -->
             
-            <div class='cards'>
-                <div class='card'>
-                    <img src='TODO' alt='' />
-                    <div class='card--name'>Name1</div>
-                    <div class='card--price'>$42.42</div>
-                    <button class='card--btn paypal-btn desktop' type='button'>Add to cart</button>
-                    <div class='card--description desktop'>This is the long text description</div>
+            <div class='cards container'>
+                <div class="row">
+                    <div class='card col s6 center-align light-blue-text text-accent-3'>
+                        <img src='TODO' alt='' />
+                        <div class='card--name'>Name1</div>
+                        <div class='card--price'>$42.42</div>
+                        <button class='card--btn paypal-btn desktop' type='button'>Add to cart</button>
+                        <div class='card--description desktop'>This is the long text description</div>
+                    </div>
+                    <div class='card col s6 center-align light-blue-text text-accent-3'>
+                        <img src='TODO' alt='' />
+                        <div class='card--name'>Name1</div>
+                        <div class='card--price'>$42.42</div>
+                        <button class='card--btn paypal-btn desktop' type='button'>Add to cart</button>
+                        <div class='card--description desktop'>This is the long text description</div>
+                    </div>
                 </div>
             </div>
-        </div> <!-- /content -->
-        
-        <footer role='contentinfo'>
-            <a href='mailto:wolfiewock@wolfiewocky.com'>
-                <img src='email TODO' alt='Email: ' />
-                wolfiewock@wolfiewocky.com
+            
+            <a class="jump-btn__mobile btn-floating">
+                <i class='tiny material-icons' alt='Jump to top' />navigation</i>
             </a>
-            
-            <button class='jump-btn' type='button'>^ Jump to Top</button>
-            
-            <div class='quote'>"This is a rotating quote." - Somebody</div>
+        </main>
+        
+        <footer class='page-footer light-blue-text text-accent-3'role='contentinfo'>
+            <div class="container center-align">
+                <a href='mailto:wolfiewock@wolfiewocky.com'>
+                    <i class='tiny material-icons mail-icon' alt='Email: ' />email</i>
+                    wolfiewock@wolfiewocky.com
+                </a>
+
+                <button class='jump-btn btn light-blue desktop' type='button'>
+                    <i class='small material-icons left' alt='Jump to top' />navigation</i>
+                    Jump to Top
+                </button>
+
+                <div class='quote desktop'>"This is a rotating quote." - Somebody</div>
+            </div>
         </footer>
             
         
