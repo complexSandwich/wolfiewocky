@@ -177,3 +177,34 @@ i.mail-icon {
         display: block;
     }
 }
+
+
+
+
+
+/*************************************************
+ *                  BOOTSTRAP                    *
+ *************************************************/
+
+.input-group {
+    display: table;
+    
+}
+
+    .input-group .form-control {
+        display: table-cell;
+        width: 100%;
+    }
+
+        .input-group .form-control:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+.form-control {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
