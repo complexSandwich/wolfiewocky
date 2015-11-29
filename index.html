@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html>
+    
+<!--
+TODO
+
+-favicon
+-search bar button pixel height
+-cheshire smile
+-make wolfie font size scale
+-get new fonts
+-make buttons paypal style? (adds trust, smaller buttons)
+-replace media queries with hide-on-small-only etc.
+-hide filter sidebar on tablets
+-flexbox cards so they're "all on one row"
+-move jump to top buttons to top
+
+-->
+    
     <head>
         <!-- TODO favicon -->
         <title>Wolfiewocky - Alice, Marvel/DC comics, Archie, and more!</title>
@@ -13,63 +30,63 @@
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- /Materialize setup -->
-            <link type="text/css" rel="stylesheet" href="style.css" />
         
         <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     
     <body>
         <header role='banner'>
             <div class="nav-wrapper">
                 <nav class='row'>
-                    <div class='brand nav-wraper col s6' aria-label='Wolfiewocky'>
+                    <div class='brand nav-wraper col m4 s6' aria-label='Wolfiewocky'>
                         <div class="wolfie center-align light-blue-text text-accent-3">Wolfiewocky</div>
-                        <img class="smile center-align" src='smile TODO' alt='Cheshire cat smile' />
+                        <img class="smile center-align" src='images/cheshire.jpg' alt='Cheshire cat smile' />
                     </div>
 
-                    <div class="col s6">
-                        <div class="row">
-                            <div class='search-bar desktop' role='search'>
-                                
-                                
-                                
-                                <div class="input-group">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-addon" id="basic-addon2">@example.com</span>
-</div>
-                                
-                                
-                                
-                                
-                                <input class='search-bar__box' type='text' name='search' placeholder="Search" aria-label='Search' />
-                                <button class='search-bar__btn btn blue waves-effect waves-light' type='button'>
-                                    <i class='search-btn--icon small material-icons' alt='Search' />search</i>
-                                </button>
+                    <div id="js-nav-elements" class="col m8 s6">
+                        <!-- Small mobile buttons -->
+                        <div class="mobile-nav-btns mobile row">
+                            <div class="col s6"><!-- Make offset-2 s4 s4 when offset works -->
+                                <div class="center-align">
+                                    <button class='search-btn btn-floating blue waves-effect waves-light' type='button'>
+                                        <i class='search-btn--icon small material-icons' alt='Search' />search</i>
+                                        </button>
+                                </div>
                             </div>
-
-                            <div class='header__btns'>
-                                <div class="mobile row">
-                                    <div class="col s6">
-                                        <div class="center-align">
-                                            <button class='faq-btn--small btn-floating blue waves-effect waves-light' type='button'>?</button>
-                                        </div>
-                                    </div>
-                                    <div class="col s6">
-                                        <div class="center-align">
-                                            <button class='search-btn btn-floating blue waves-effect waves-light' type='button'>
+                            <div class="col s6">
+                                <div class="center-align">
+                                    <button class='faq-btn--small btn-floating blue waves-effect waves-light' type='button'>?</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Search bar and big buttons -->
+                        <div class="search-bar-row row valign-wrapper">
+                            <div class='search-bar desktop col m3 l6 center-align valign' role='search'>
+                                <!-- Show search button on tablet -->
+                                <div class="hide-on-small-only hide-on-large-only center-align">
+                                    <button class='search-btn btn blue waves-effect waves-light' type='button'>
+                                        <i class='search-btn--icon small material-icons' alt='Search' />search</i>
+                                        </button>
+                                </div>
+                                
+                                <!-- Only show search bar on desktop -->
+                                <div class="hide-on-med-only input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="search-bar__btn btn blue waves-effect waves-light" type="button">
                                                 <i class='search-btn--icon small material-icons' alt='Search' />search</i>
-                                                </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row center-align">
-                                    <div class="height-hack col s12 m8">
-                                        <button class='paypal-btn btn blue waves-effect waves-light' type='button'>View Cart</button>
-                                    </div>
-                                    <div class="col s4">
-                                        <button class='faq-btn--big desktop btn blue waves-effect waves-light' type='button'>FAQ</button>
-                                    </div>
-                                </div>
+                                            </button>
+                                        </span>
+                                </div><!-- /input-group -->
+                            </div>
+                            
+                            <div class="height-hack col s12 m6 l3 center-align valign">
+                                <button class='paypal-btn btn blue waves-effect waves-light' type='button'>View Cart</button>
+                            </div>
+                            <div class="col m3 valign desktop">
+                                <button class='faq-btn--big desktop btn blue waves-effect waves-light' type='button'>FAQ</button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +202,7 @@
                                         <div class='card--name'>Name1</div>
                                         <div class='card--price'>$42.42</div>
                                     </div>
-                                    <div class="desktop col s6">
+                                    <div class="desktop col s5">
                                         <!-- TODO shrink button -->
                                         <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
                                     </div>
@@ -206,51 +223,7 @@
                                         <div class='card--name'>Name1</div>
                                         <div class='card--price'>$42.42</div>
                                     </div>
-                                    <div class="desktop col s6">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class='card--description desktop'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="desktop col s6">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class='card--description desktop'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
-                            </div>
-                        </div>
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="desktop col s6">
+                                    <div class="desktop col s5">
                                         <!-- TODO shrink button -->
                                         <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
                                     </div>
@@ -273,7 +246,7 @@
                                         <div class='card--name'>Name1</div>
                                         <div class='card--price'>$42.42</div>
                                     </div>
-                                    <div class="desktop col s6">
+                                    <div class="desktop col s5">
                                         <!-- TODO shrink button -->
                                         <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
                                     </div>
@@ -294,7 +267,51 @@
                                         <div class='card--name'>Name1</div>
                                         <div class='card--price'>$42.42</div>
                                     </div>
-                                    <div class="desktop col s6">
+                                    <div class="desktop col s5">
+                                        <!-- TODO shrink button -->
+                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                    </div>
+                                </div>
+                                <div class='card--description desktop'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <div class='card center-align light-blue-text text-accent-3'>
+                                <div class="js-resize valign-wrapper">
+                                    <img class="valign" src='images/cheshire.jpg' alt='' />
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="row">
+                                    <div class="col m6 s12">
+                                        <div class='card--name'>Name1</div>
+                                        <div class='card--price'>$42.42</div>
+                                    </div>
+                                    <div class="desktop col s5">
+                                        <!-- TODO shrink button -->
+                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                    </div>
+                                </div>
+                                <div class='card--description desktop'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class='card center-align light-blue-text text-accent-3'>
+                                <div class="js-resize valign-wrapper">
+                                    <img class="valign" src='images/cheshire.jpg' alt='' />
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="row">
+                                    <div class="col m6 s12">
+                                        <div class='card--name'>Name1</div>
+                                        <div class='card--price'>$42.42</div>
+                                    </div>
+                                    <div class="desktop col s5">
                                         <!-- TODO shrink button -->
                                         <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
                                     </div>
@@ -312,18 +329,20 @@
         </main>
         
         <footer class='page-footer light-blue-text text-accent-3'role='contentinfo'>
-            <div class="container center-align">
-                <a href='mailto:wolfiewock@wolfiewocky.com'>
-                    <i class='tiny material-icons mail-icon' alt='Email: ' />email</i>
-                    wolfiewock@wolfiewocky.com
-                </a>
+            <div class="container center-align row">
+                <div class="col s12 m8 l4">
+                    <a href='mailto:wolfiewock@wolfiewocky.com'>
+                        <i class='tiny material-icons mail-icon' alt='Email: ' />email</i>
+                        wolfiewock@wolfiewocky.com
+                    </a>
+                </div>
 
-                <button class='jump-btn btn light-blue desktop' type='button'>
+                <button class='jump-btn col s4 l2 btn light-blue desktop' type='button'>
                     <i class='small material-icons left' alt='Jump to top' />navigation</i>
                     Jump to Top
                 </button>
 
-                <div class='quote desktop'>"This is a rotating quote." - Somebody</div>
+                <div class='quote hide-on-med-and-down col l6 left-align'>"This is a rotating quote." - Somebody</div>
             </div>
         </footer>
             
