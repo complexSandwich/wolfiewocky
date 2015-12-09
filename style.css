@@ -8,6 +8,10 @@
 }
 */
 
+.btn {
+    padding: 0 1.5rem;
+}
+
 .row {
     margin-bottom: 5px;
 }
@@ -42,6 +46,12 @@ nav {
     background-color: hsl(220, 35%, 30%);
     box-shadow: none;
 }
+
+    nav input[type=text] {
+        margin-bottom: 0;
+        box-sizing: border-box;
+        padding: 15px 12px;
+    }
 
 /* Brand */
 .smile {
@@ -79,6 +89,11 @@ nav {
 .search-bar__btn {
     padding: 0 0.7rem;
 }
+
+.tablet-search-bar {
+    width: 75%;
+    margin: auto;
+}
 /* /Search bar/buttons */
 
 
@@ -92,6 +107,11 @@ main {
     z-index: 1;
     margin-bottom: 30px;
     padding-top: 135px;
+}
+
+.main-content {
+    max-width: 1000px;
+    margin: auto;
 }
 
 .cards .col {
@@ -113,6 +133,15 @@ main {
 
     .card .card--description {
         margin-top: 15px;
+    }
+
+    .card .card--price {
+        color: hsl(0, 0%, 90%);
+    }
+
+    .card .card--shipping {
+        font-size: 10px;
+        color: hsl(0, 0%, 65%);
     }
 
 .jump-btn__mobile {
@@ -162,31 +191,16 @@ i.mail-icon {
  ********************************************/
 
 /* Mobile */
-@media screen and (max-width: 600px){
-    .mobile {
-        display: block;
-    }
-    
-    .desktop {
-        display: none !important;
-    }
-    
-    .header__btns {
-        /*max-width: 49%;*/
-    }
+@media screen and (max-width: 992px){
+    /* TODO remove? */
 }
 
 /* Desktop */
-@media screen and (min-width: 601px){
-    .mobile {
-        display: none !important;
+@media screen and (min-width: 993px){
+    .lower-nav-row {
+        height: 100%;
     }
     
-    .desktop {
-        display: block;
-    }
-        
-
     .search-bar-row {
         height: 100%;
     }
@@ -201,6 +215,7 @@ i.mail-icon {
  *************************************************/
 /* Took some of the search bar styles from botstrap */
 
+/*
 .input-group {
     display: table;
 }
@@ -214,21 +229,26 @@ i.mail-icon {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
+*/
 
 input[type=text].form-control {
-    padding: 6px 12px;
     font-size: 14px;
-    line-height: 1.4;
     color: #555;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 1.5rem;
+    /*
+    line-height: 1.4;
+    padding: 6px 12px;
+    */
 }
 
+/*
 .input-group-btn {
     width: 1%;
     vertical-align: middle;
     display: table-cell;
     color: #333;
 }
+*/
