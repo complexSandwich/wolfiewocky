@@ -4,17 +4,18 @@
 <!--
 TODO
 
+-make filter box prettier
+-get filter modal working
+-make filters work
+-dynamically generate cards
+-make FAQ modal
+-make search filtering work
+-build card list from document
 -favicon
--search bar button pixel height
 -cheshire smile
 -make wolfie font size scale
 -get new fonts
--make buttons paypal style? (adds trust, smaller buttons)
--replace media queries with hide-on-small-only etc.
--hide filter sidebar on tablets
--flexbox cards so they're "all on one row"
--move jump to top buttons to top
-
+-fix jump to top button
 -->
     
     <head>
@@ -35,7 +36,7 @@ TODO
         <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     
-    <body>
+    <body class="grey lighten-2">
         <header role='banner'>
             <div class="nav-wrapper">
                 <nav class='row'>
@@ -44,7 +45,7 @@ TODO
                         <img class="smile center-align" src='images/cheshire.jpg' alt='Cheshire cat smile' />
                     </div>
 
-                    <div id="js-nav-elements" class="col m8 s6">
+                    <div class="col m8 s6 nav-elements">
                         <!-- Upper nav row (hidden on large) -->
                         <div class="row hide-on-large-only">
                             <!-- Small mobile buttons (small only) -->
@@ -91,244 +92,378 @@ TODO
             </div>
         </header>
         
-        <main class='content grey lighten-2'>
+        <main class='content'>
             
-            <div class="row hide-on-med-and-up">
+            <div class="row hide-on-large-only">
                 <div class="col s1">&nbsp;<!-- Dummy div because offset is currently broken --></div>
                 <button class="filter-btn btn col s10 center-align blue waves-effect waves-light">Filter</button>
             </div>
             
             <div class="row main-content">
-                <div class='filter-sidebar hide-on-small-only col s3' aria-label='Filters and sorting'>
-                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
-                        <fieldset>
-                            <legend>Sort by:</legend>
-                            <div>
-                                <input type='radio' name='sort' id='lbl--sort-name' value='name' />
-                                <label for='lbl--sort-name'>Name</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='sort' id='lbl--sort-price' value='price' />
-                                <label for='lbl--sort-price'>Price</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
-                        <fieldset>
-                            <legend>Price:</legend>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-any' value='0' />
-                                <label for='lbl--price-any'>Any</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-ten' value='10' />
-                                <label for='lbl--price-ten'>< $10</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-ten-twenty' value='10-20' />
-                                <label for='lbl--price-ten-twenty'>$10 - $20</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-twenty-fifty' value='20-50' />
-                                <label for='lbl--price-twenty-fifty'>$20 - $50</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-fifty-hundred' value='50-100' />
-                                <label for='lbl--price-fifty-hundred'>$50 - $100</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='price' id='lbl--price-hundred' value='100' />
-                                <label for='lbl--price-hundred'>$100+</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
-                        <fieldset>
-                            <legend>Category:</legend>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-any' value='any' />
-                                <label for='lbl--category-any'>Any</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-alice' value='alice' />
-                                <label for='lbl--category-alice'>Alice</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-marvel' value='marvel' />
-                                <label for='lbl--category-marvel'>Marvel</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-dc' value='dc' />
-                                <label for='lbl--category-dc'>DC</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-archie' value='archie' />
-                                <label for='lbl--category-archie'>Archie</label>
-                            </div>
-                            <div>
-                                <input type='radio' name='category' id='lbl--category-other' value='other' />
-                                <label for='lbl--category-other'>Other</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class='filter-sidebar__section filter-sidebar__section--recent'>
-                        <fieldset>
-                            <div>
-                                <input type='checkbox' class="filled-in" name='recent' id='lbl--recent' value='recent' />
-                                <label for='lbl--recent'>Only recently added</label>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div><!-- /filter-sidebar -->
-
-                <div class='cards container col s12 m9'>
-                    <div class="row">
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
+                
+                <!-- FILTER SIDEBAR -->
+                <div class="sidebar-wrapper">
+                    <div class='filter-sidebar hide-on-med-and-down col s3' aria-label='Filters and sorting'>
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                            <fieldset>
+                                <legend>Sort by:</legend>
+                                <div>
+                                    <input type='radio' name='sort' id='lbl--sort-name' value='name' />
+                                    <label for='lbl--sort-name'>Name</label>
                                 </div>
-
-                                <div class="divider"></div>
-
-                                <div class="row valign-wrapper">
-                                    <div class="col l6 s12">
-                                        <div class='card--name'>Some really long descriptive name</div>
-                                        <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
-                                        
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5 valign">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
+                                <div>
+                                    <input type='radio' name='sort' id='lbl--sort-price' value='price' />
+                                    <label for='lbl--sort-price'>Price</label>
                                 </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
-                            </div>
+                            </fieldset>
                         </div>
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
 
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                            <fieldset>
+                                <legend>Price:</legend>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-any' value='0' />
+                                    <label for='lbl--price-any'>Any</label>
                                 </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-ten' value='10' />
+                                    <label for='lbl--price-ten'>< $10</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-ten-twenty' value='10-20' />
+                                    <label for='lbl--price-ten-twenty'>$10 - $20</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-twenty-fifty' value='20-50' />
+                                    <label for='lbl--price-twenty-fifty'>$20 - $50</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-fifty-hundred' value='50-100' />
+                                    <label for='lbl--price-fifty-hundred'>$50 - $100</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='lbl--price-hundred' value='100' />
+                                    <label for='lbl--price-hundred'>$100+</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                            <fieldset>
+                                <legend>Category:</legend>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-any' value='any' />
+                                    <label for='lbl--category-any'>Any</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-alice' value='alice' />
+                                    <label for='lbl--category-alice'>Alice</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-marvel' value='marvel' />
+                                    <label for='lbl--category-marvel'>Marvel</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-dc' value='dc' />
+                                    <label for='lbl--category-dc'>DC</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-archie' value='archie' />
+                                    <label for='lbl--category-archie'>Archie</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='lbl--category-other' value='other' />
+                                    <label for='lbl--category-other'>Other</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class='filter-sidebar__section'>
+                            <fieldset>
+                                <div class="filter-sidebar__section--recent">
+                                    <input type='checkbox' class="filled-in" name='recent' id='lbl--recent' value='recent' />
+                                    <label for='lbl--recent'>Only recently added</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div> <!-- /filter-sidebar -->
+                </div> <!-- /sidebar-wrapper -->
+
+                
+                    
+                <!-- CARDS -->
+                <div class='cards container col s12 l9'>
+                    <div id="js-modal1__btn" class="flex-card" data-target="modal1" onclick="conditionalCardModal('#modal1')">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
                             </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <a  href="">
+                                                <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                    <div id="modal1" class="modal"><div class='center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
                             </div>
-                        </div>
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
 
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-s1 s4 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="col push-s1 s6 valign">
+                                            <button class='hide-on-small-only paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                            <button class='hide-on-med-and-up paypal-add btn blue waves-effect waves-light' type='button'>+ <i class="material-icons">shopping_cart</i></button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
                             </div>
+
+                            <div class="divider"></div>
+                            
+                            <div class='card--description'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
-
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
-                                    </div>
-                                </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
                             </div>
-                        </div>
-                        <div class="col s6">
-                            <div class='card center-align light-blue-text text-accent-3'>
-                                <div class="js-resize valign-wrapper">
-                                    <img class="valign" src='images/cheshire.jpg' alt='' />
-                                </div>
 
-                                <div class="divider"></div>
-
-                                <div class="row">
-                                    <div class="col m6 s12">
-                                        <div class='card--name'>Name1</div>
-                                        <div class='card--price'>$42.42</div>
-                                    </div>
-                                    <div class="hide-on-med-and-down col s5">
-                                        <!-- TODO shrink button -->
-                                        <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
                             </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-card">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src='images/cheshire.jpg' alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>Some really long descriptive name</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>$42.42 <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>This is the long text description that will containlots of words and maybe even whole sentences!</div>
+                        </div>
+                    </div>
+                </div> <!-- /cards -->
+            </div> <!-- /main-content -->
             
-            <a class="jump-btn__mobile hide-on-med-and-up btn-floating blue waves-effect waves-light">
+            <!--a class="jump-btn__mobile hide-on-large-only btn-floating blue waves-effect waves-light">
                 <i class='tiny material-icons' alt='Jump to top' />navigation</i>
-            </a>
+            </a-->
         </main>
         
         <footer class='page-footer light-blue-text text-accent-3'role='contentinfo'>
-            <div class="container right-align row">
-                <div class="col s12 m8 l6">
+            <div class="container center-align row">
+                <div class="col s12 l6">
                     <a href='mailto:wolfiewock@wolfiewocky.com'>
                         <i class='tiny material-icons mail-icon' alt='Email: ' />email</i>
                         wolfiewock@wolfiewocky.com
