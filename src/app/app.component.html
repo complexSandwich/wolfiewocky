@@ -1,0 +1,248 @@
+<main class='content'>
+            
+            <!-- FILTER BUTTON -->
+            <div class="row hide-on-large-only" attr.data-target="modal--filter" ng-click="conditionalCardModal('#modal__filter')">
+                <div class="col s2">&nbsp;<!-- Dummy div because offset is currently broken --></div>
+                <button class="filter-btn btn col s8 center-align blue waves-effect waves-light">Filter</button>
+            </div>
+            <div id="modal__filter" class="modal">
+                <div class='filter-modal col s3' aria-label='Filters and sorting'>
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                        <fieldset>
+                            <legend>Sort by:</legend>
+                            <div>
+                                <input type='radio' name='sort' id='sort--name' value='name' />
+                                <label for='sort--name'>Name</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='sort' id='sort--price' value='price' />
+                                <label for='sort--price'>Price</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                        <fieldset>
+                            <legend>Price:</legend>
+                            <div>
+                                <input type='radio' name='price' id='price--any' value='0' />
+                                <label for='price--any'>Any</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='price' id='price--ten' value='10' />
+                                <label for='price--ten'>< $10</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='price' id='price--ten-twenty' value='10-20' />
+                                <label for='price--ten-twenty'>$10 - $20</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='price' id='price--twenty-fifty' value='20-50' />
+                                <label for='price--twenty-fifty'>$20 - $50</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='price' id='price--fifty-hundred' value='50-100' />
+                                <label for='price--fifty-hundred'>$50 - $100</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='price' id='price--hundred' value='100' />
+                                <label for='price--hundred'>$100+</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                        <fieldset>
+                            <legend>Category:</legend>
+                            <div>
+                                <input type='radio' name='category' id='category--any' value='any' />
+                                <label for='category--any'>Any</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='category' id='category--alice' value='alice' />
+                                <label for='category--alice'>Alice</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='category' id='category--marvel' value='marvel' />
+                                <label for='category--marvel'>Marvel</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='category' id='category--dc' value='dc' />
+                                <label for='category--dc'>DC</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='category' id='category--archie' value='archie' />
+                                <label for='category--archie'>Archie</label>
+                            </div>
+                            <div>
+                                <input type='radio' name='category' id='category--other' value='other' />
+                                <label for='category--other'>Other</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section'>
+                        <fieldset>
+                            <div class="filter-sidebar__section--recent">
+                                <input type='checkbox' class="filled-in" name='recent' id='recent' value='recent' />
+                                <label for='recent'>Only recently added</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div> <!-- /filter-sidebar -->
+            </div>
+            
+            <div class="row main-content">
+                
+                <!-- FILTER SIDEBAR -->
+                <div class="sidebar-wrapper">
+                    <div class='filter-sidebar hide-on-med-and-down col s3' aria-label='Filters and sorting'>
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                            <fieldset>
+                                <legend>Sort by:</legend>
+                                <div>
+                                    <input type='radio' name='sort' id='sort--name' value='name' />
+                                    <label for='sort--name'>Name</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='sort' id='sort--price' value='price' />
+                                    <label for='sort--price'>Price</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                            <fieldset>
+                                <legend>Price:</legend>
+                                <div>
+                                    <input type='radio' name='price' id='price--any' value='0' />
+                                    <label for='price--any'>Any</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='price--ten' value='10' />
+                                    <label for='price--ten'>< $10</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='price--ten-twenty' value='10-20' />
+                                    <label for='price--ten-twenty'>$10 - $20</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='price--twenty-fifty' value='20-50' />
+                                    <label for='price--twenty-fifty'>$20 - $50</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='price--fifty-hundred' value='50-100' />
+                                    <label for='price--fifty-hundred'>$50 - $100</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='price' id='price--hundred' value='100' />
+                                    <label for='price--hundred'>$100+</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                            <fieldset>
+                                <legend>Category:</legend>
+                                <div>
+                                    <input type='radio' name='category' id='category--any' value='any' />
+                                    <label for='category--any'>Any</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='category--alice' value='alice' />
+                                    <label for='category--alice'>Alice</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='category--marvel' value='marvel' />
+                                    <label for='category--marvel'>Marvel</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='category--dc' value='dc' />
+                                    <label for='category--dc'>DC</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='category--archie' value='archie' />
+                                    <label for='category--archie'>Archie</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='category' id='category--other' value='other' />
+                                    <label for='category--other'>Other</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class='filter-sidebar__section'>
+                            <fieldset>
+                                <div class="filter-sidebar__section--recent">
+                                    <input type='checkbox' class="filled-in" name='recent' id='recent' value='recent' />
+                                    <label for='recent'>Only recently added</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div> <!-- /filter-sidebar -->
+                </div> <!-- /sidebar-wrapper -->
+
+                
+                    
+                <!-- CARDS -->
+                <div *ngFor='let card of filtered' class='cards container col s12 l9'>
+                    <div id="js-modal{{card.id}}__btn" class="flex-card" attr.data-target="modal{{card.id}}" ng-click="conditionalCardModal('#modal' +card.id)">
+                        <div class='card center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" ng-src="images/card.image" alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>{{card.name}}</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-l1 l4 s12 valign">
+                                            <div class='card--price'>{{card.price | currency}} <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                            <a  href="">
+                                                <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider hide-on-med-and-down"></div>
+                            
+                            <div class='card--description hide-on-med-and-down'>{{card.description}}</div>
+                        </div>
+                    </div>
+                    <div id="modal{{card.id}}" class="modal">
+                        <div class='center-align light-blue-text text-accent-3'>
+                            <div class="valign-wrapper">
+                                <img class="valign" src="images/{{card.image}}" alt='' />
+                            </div>
+
+                            <div class="row card--body">
+                                <div class="col s12">
+                                    <div class='card--name'>{{card.name}}</div>
+                                    <div class="row valign-wrapper">
+                                        <div class="col push-s1 s4 valign">
+                                            <div class='card--price'>{{card.price}} <span class='card--shipping'>+shipping</span></div>
+                                        </div>
+                                        <div class="col push-s1 s6 valign">
+                                            <button class='hide-on-small-only paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                            <button class='hide-on-med-and-up paypal-add btn blue waves-effect waves-light' type='button'>+ <i class="material-icons">shopping_cart</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+                            
+                            <div class='card--description'>{{card.description}}</div>
+                        </div>
+                    </div>
+                </div> <!-- /cards -->
+            </div> <!-- /main-content -->
+            
+            <!--a class="jump-btn__mobile hide-on-large-only btn-floating blue waves-effect waves-light">
+                <i class='tiny material-icons' alt='Jump to top' />navigation</i>
+            </a-->
+        </main>
