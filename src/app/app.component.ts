@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Card} from './card';
 import {CardService} from './card.service';
@@ -11,7 +11,7 @@ import {CardService} from './card.service';
   ],
   providers: [CardService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'wolfiewocky';
   cards: Card[];
   filtered: Card[];
@@ -21,5 +21,10 @@ export class AppComponent {
   getCards(): void {
     this.cards = this.cardService.getCards();
     this.filtered = this.cards;
+    console.debug(this.filtered);
+  }
+
+  ngOnInit(): void {
+    this.getCards();
   }
 }

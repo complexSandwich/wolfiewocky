@@ -5,4 +5,5 @@ export class Card {
     description: string;
     category: string;
     dateAdded: Date;
+    image: string;
 }
