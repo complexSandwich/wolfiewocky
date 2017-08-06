@@ -1,0 +1,356 @@
+/*****************************************
+ *                  GLOBAL               *
+ *****************************************/
+
+/*
+* {
+    box-sizing: border-box;
+}
+*/
+
+html {
+    height: calc(100% - 15px);
+}
+
+.btn {
+    padding: 0 1.5rem;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+
+
+
+/********************************************
+ *                  HEADER                  *
+ ********************************************/
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    overflow: auto;
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.nav-elements {
+    margin-top: 5px;
+    height: 109px; /* Force it to be the height of the header */
+}
+
+.nav-wrapper {
+    background-color: hsl(220, 35%, 30%);
+    padding-bottom: 5px;
+}
+
+nav {
+    height: auto;
+    max-width: 1000px;
+    background-color: hsl(220, 35%, 30%);
+    box-shadow: none;
+}
+
+    nav input[type=text] {
+        margin-bottom: 0;
+        box-sizing: border-box;
+        padding: 15px 12px;
+    }
+
+/* Brand */
+.smile {
+    max-height: 50px;
+    overflow: auto;
+    display: block;
+    margin: auto;
+}
+
+.wolfie {
+    font-size: 32px;
+    font-weight: bold;
+}
+/* /Brand */
+
+/* Search bar/buttons */
+.faq-btn--small {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.faq-btn--big {
+    display: block;
+    margin: auto;
+}
+
+.height-hack {
+    line-height: 0;
+}
+
+.search-btn--icon {
+    transform: rotate(90deg);
+}
+
+.search-bar__btn {
+    padding: 0 0.7rem;
+}
+
+.tablet-search-bar {
+    width: 75%;
+    margin: auto;
+}
+/* /Search bar/buttons */
+
+
+
+
+/********************************************
+ *                  MAIN                    *
+ ********************************************/
+
+body {
+    margin-bottom: 40px;
+}
+
+main {
+    z-index: 1;
+    margin-bottom: 30px;
+    padding-top: 135px;
+    height: 100%;
+}
+
+    .main-content {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+        .main-content .filter-sidebar {
+            background-color: hsl(220, 35%, 30%);
+            padding-bottom: 10px;
+        }
+
+            legend {
+                color: #FFF;
+            }
+
+            label {
+                color: #FFF;
+            }
+
+            /* Materialize radio color overrides: */
+            [type="radio"]:checked + label:before {
+                border: 2px solid #FFF;
+            }
+            [type="radio"]:not(:checked) + label:before {
+                border: 2px solid #FFF;
+            }
+            [type="radio"]:checked + label:after {
+                border: 2px solid #FFF;
+                background-color: #2196F3;
+            }
+
+            /* Materialize checkbox color overrides: */
+            [type="checkbox"].filled-in:not(:checked) + label:after {
+                border: 2px solid #FFF;
+                background-color: hsl(220, 35%, 30%);
+            }
+            [type="checkbox"].filled-in:checked + label:after {
+                border: 2px solid #FFF;
+                background-color: #2196F3;
+            }
+
+            .filter-sidebar__section--recent {
+                padding-top: 10px;
+            }
+
+        .cards {
+            margin-left: -5px;
+            margin-right: -5px;
+
+            /* Flexbox */
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+            .flex-card {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-basis: 50%;
+                  -ms-flex-preferred-size: 50%;
+                      flex-basis: 50%;
+            }
+
+            .cards .card {
+                background-color: hsl(220, 35%, 30%);
+                padding: 10px;
+                margin: 6px 5px;
+            }
+
+                .card img {
+                    max-width: 100%;
+                }
+
+                .card .divider {
+                    margin: 5px 0;
+                }
+
+                .card--body {
+                    margin: 7px 0;
+                }
+
+                .card--name {
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+
+                .card--description {
+                    margin-top: 10px;
+                }
+
+                .card--price {
+                    color: hsl(0, 0%, 90%);
+                }
+
+                .card--shipping {
+                    font-size: 10px;
+                    color: hsl(0, 0%, 65%);
+                }
+
+    .jump-btn__mobile {
+        z-index: 3;
+    }
+
+
+
+
+/********************************************
+ *                  MODALS                  *
+ ********************************************/
+
+.modal {
+    padding: 10px;
+    background-color: hsl(220, 35%, 30%);
+    overflow-x: hidden;
+}
+
+    .modal img {
+        width: 80%;
+        margin: auto;
+    }
+
+
+
+
+/********************************************
+ *                  FOOTER                  *
+ ********************************************/
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 5px 0;
+    height: 40px;
+}
+
+    footer.page-footer {
+        padding-top: 7px;
+        background-color: hsl(220, 35%, 30%);
+        border-top: 2px solid #333;
+    }
+
+i.mail-icon {
+    position: relative;
+    top: 4px;
+    font-size: 1.3rem;
+}
+
+.jump-btn__mobile {
+    position: fixed;
+    right: 5px;
+    bottom: 30px;
+}
+
+
+
+
+/********************************************
+ *              MEDIA_QUERIES               *
+ ********************************************/
+
+/* Mobile */
+@media screen and (max-width: 992px){
+    /* TODO remove? */
+}
+
+/* Desktop */
+@media screen and (min-width: 993px){
+    .lower-nav-row {
+        height: 100%;
+    }
+    
+    .search-bar-row {
+        height: 100%;
+    }
+}
+
+
+
+
+
+/*************************************************
+ *                  BOOTSTRAP                    *
+ *************************************************/
+/* Took some of the search bar styles from botstrap */
+
+/*
+.input-group {
+    display: table;
+}
+
+    .input-group .form-control {
+        display: table-cell;
+        width: 100%;
+    }
+
+        .input-group .form-control:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+*/
+
+input[type=text].form-control {
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 1.5rem;
+    /*
+    line-height: 1.4;
+    padding: 6px 12px;
+    */
+}
+
+/*
+.input-group-btn {
+    width: 1%;
+    vertical-align: middle;
+    display: table-cell;
+    color: #333;
+}
+*/

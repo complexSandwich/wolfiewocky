@@ -1,5 +1,4 @@
 <main class='content'>
-<script>console.debug({{filtered}});</script>
     <!-- FILTER BUTTON -->
     <div class="row hide-on-large-only" attr.data-target="modal--filter" ng-click="conditionalCardModal('#modal__filter')">
         <div class="col s2">&nbsp;<!-- Dummy div because offset is currently broken --></div>
@@ -11,11 +10,11 @@
                 <fieldset>
                     <legend>Sort by:</legend>
                     <div>
-                        <input type='radio' name='sort' id='sort--name' value='name' />
+                        <input type='radio' name='sort' id='sort--name' value='name' (click)="nameSort()"/>
                         <label for='sort--name'>Name</label>
                     </div>
                     <div>
-                        <input type='radio' name='sort' id='sort--price' value='price' />
+                        <input type='radio' name='sort' id='sort--price' value='price' (click)="priceSort()" />
                         <label for='sort--price'>Price</label>
                     </div>
                 </fieldset>
@@ -185,9 +184,8 @@
         
             
         <!-- CARDS -->
-<p *ngIf="!filtered">Osadfsdf<p>
-        <div *ngFor='let card of filtered' class='cards container col s12 l9'>
-            <div id="js-modal{{card.id}}__btn" class="flex-card" attr.data-target="modal{{card.id}}" ng-click="conditionalCardModal('#modal' + card.id)">
+        <div class='cards container col s12 l9'>
+            <div *ngFor='let card of filtered' id="js-modal{{card.id}}__btn" class="flex-card" attr.data-target="modal{{card.id}}" (click)="conditionalCardModal('#modal' + card.id)">
                 <div class='card center-align light-blue-text text-accent-3'>
                     <div class="valign-wrapper">
                         <img class="valign" src="assets/images/{{card.image}}" alt='' />
@@ -213,7 +211,6 @@
                     
                     <div class='card--description hide-on-med-and-down'>{{card.description}}</div>
                 </div>
-            </div>
             <div id="modal{{card.id}}" class="modal">
                 <div class='center-align light-blue-text text-accent-3'>
                     <div class="valign-wrapper">
@@ -239,6 +236,7 @@
                     
                     <div class='card--description'>{{card.description}}</div>
                 </div>
+            </div>
             </div>
         </div> <!-- /cards -->
     </div> <!-- /main-content -->
