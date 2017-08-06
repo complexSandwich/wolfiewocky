@@ -54,27 +54,27 @@
                 <fieldset>
                     <legend>Category:</legend>
                     <div>
-                        <input type='radio' name='category' id='category--any' value='any' />
+                        <input type='radio' name='category' id='category--any' value='any' (click)="categoryFilter(null)"/>
                         <label for='category--any'>Any</label>
                     </div>
                     <div>
-                        <input type='radio' name='category' id='category--alice' value='alice' />
+                        <input type='radio' name='category' id='category--alice' value='alice' (click)="categoryFilter('ALICE')"/>
                         <label for='category--alice'>Alice</label>
                     </div>
                     <div>
-                        <input type='radio' name='category' id='category--marvel' value='marvel' />
+                        <input type='radio' name='category' id='category--marvel' value='marvel' (click)="categoryFilter('MARVEL')"/>
                         <label for='category--marvel'>Marvel</label>
                     </div>
                     <div>
-                        <input type='radio' name='category' id='category--dc' value='dc' />
+                        <input type='radio' name='category' id='category--dc' value='dc' (click)="categoryFilter('DC')"/>
                         <label for='category--dc'>DC</label>
                     </div>
                     <div>
-                        <input type='radio' name='category' id='category--archie' value='archie' />
+                        <input type='radio' name='category' id='category--archie' value='archie' (click)="categoryFilter('ARCHEY')"/>
                         <label for='category--archie'>Archie</label>
                     </div>
                     <div>
-                        <input type='radio' name='category' id='category--other' value='other' />
+                        <input type='radio' name='category' id='category--other' value='other' (click)="categoryFilter('OTHER')"/>
                         <label for='category--other'>Other</label>
                     </div>
                 </fieldset>
