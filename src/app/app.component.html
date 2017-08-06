@@ -24,27 +24,27 @@
                 <fieldset>
                     <legend>Price:</legend>
                     <div>
-                        <input type='radio' name='price' id='price--any' value='0' />
+                        <input type='radio' name='price' id='price--any' value='0' (click)="priceFilter(0, infinity)"/>
                         <label for='price--any'>Any</label>
                     </div>
                     <div>
-                        <input type='radio' name='price' id='price--ten' value='10' />
+                        <input type='radio' name='price' id='price--ten' value='10' (click)="priceFilter(0, 10)"/>
                         <label for='price--ten'>< $10</label>
                     </div>
                     <div>
-                        <input type='radio' name='price' id='price--ten-twenty' value='10-20' />
+                        <input type='radio' name='price' id='price--ten-twenty' value='10-20' (click)="priceFilter(10, 20)"/>
                         <label for='price--ten-twenty'>$10 - $20</label>
                     </div>
                     <div>
-                        <input type='radio' name='price' id='price--twenty-fifty' value='20-50' />
+                        <input type='radio' name='price' id='price--twenty-fifty' value='20-50' (click)="priceFilter(20, 50)"/>
                         <label for='price--twenty-fifty'>$20 - $50</label>
                     </div>
                     <div>
-                        <input type='radio' name='price' id='price--fifty-hundred' value='50-100' />
+                        <input type='radio' name='price' id='price--fifty-hundred' value='50-100' (click)="priceFilter(50, 100)"/>
                         <label for='price--fifty-hundred'>$50 - $100</label>
                     </div>
                     <div>
-                        <input type='radio' name='price' id='price--hundred' value='100' />
+                        <input type='radio' name='price' id='price--hundred' value='100' (click)="priceFilter(100, infinity)"/>
                         <label for='price--hundred'>$100+</label>
                     </div>
                 </fieldset>
