@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
     title = 'wolfiewocky';
     cards: Card[];
     filtered: Card[];
-    sortBy: string = null;
+    sortBy: string = 'NAME';
     priceRange: number[] = [0, Infinity];
     infinity = Infinity; //stupid angular #HateChaBro
     category: string = null;
@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
     getCards(): void {
         this.cards = this.cardService.getCards();
         this.filtered = this.cards;
+        this.runSort();
     }
 
     ngOnInit(): void {
