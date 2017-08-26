@@ -38,6 +38,7 @@ export class AppComponent implements OnInit{
     }
 
     nameSort(): void {
+        this.sortBy = 'NAME';
         this.filtered.sort(function(a,b){
             if(a.name < b.name) { return -1; }
             else if(a.name > b.name) { return 1; }
@@ -46,9 +47,21 @@ export class AppComponent implements OnInit{
     }
 
     priceSort(): void {
+        this.sortBy = 'PRICE';
         this.filtered.sort(function(a,b) {
             return a.price - b.price;
         });
+    }
+
+    runSort(): void {
+        switch(this.sortBy) {
+            case 'NAME':
+                this.nameSort();
+                break;
+            case 'PRICE':
+                this.priceSort();
+                break;
+        }
     }
 
     priceCondition(card): boolean {
@@ -72,6 +85,7 @@ export class AppComponent implements OnInit{
                 else if(this.categoryCondition(card)) { this.filtered.push(card); }
             }
         });
+        this.runSort();
     }
 
     categoryFilter(category: string): void {
@@ -81,6 +95,7 @@ export class AppComponent implements OnInit{
             if(this.categoryCondition(card) && this.priceCondition(card))
                 this.filtered.push(card);
         });
+        this.runSort();
     }
 
     rerunFilters(): void {
