@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $("#sort--price").click(function(){
-console.log("price");
-        
+       //TODO: remove these function 
         //$(".flex-card").get().sort(sortByName);
     });
 });
