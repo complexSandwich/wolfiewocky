@@ -13,11 +13,11 @@
                 <fieldset>
                     <legend>Sort by:</legend>
                     <div>
-                        <input type='radio' name='sort--mobile' id='sort--name--mobile' value='name' (click)="nameSort()" checked />
+                        <input type='radio' class='filter-option' name='sort--mobile' id='sort--name--mobile' value='name' (click)="nameSort()" checked />
                         <label for='sort--name--mobile'>Name</label>
                     </div>
                     <div>
-                        <input type='radio' name='sort--mobile' id='sort--price--mobile' value='price' (click)="priceSort()" />
+                        <input type='radio' class='filter-option' name='sort--mobile' id='sort--price--mobile' value='price' (click)="priceSort()" />
                         <label for='sort--price--mobile'>Price</label>
                     </div>
                 </fieldset>
@@ -27,27 +27,27 @@
                 <fieldset>
                     <legend>Price:</legend>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--any--mobile' value='0' (click)="priceFilter(0, infinity)" checked/>
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--any--mobile' value='0' (click)="priceFilter(0, infinity)" checked/>
                         <label for='price--any--mobile'>Any</label>
                     </div>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--ten--mobile' value='10' (click)="priceFilter(0, 10)" />
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--ten--mobile' value='10' (click)="priceFilter(0, 10)" />
                         <label for='price--ten--mobile'>< $10</label>
                     </div>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--ten-twenty--mobile' value='10-20' (click)="priceFilter(10, 20)" />
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--ten-twenty--mobile' value='10-20' (click)="priceFilter(10, 20)" />
                         <label for='price--ten-twenty--mobile'>$10 - $20</label>
                     </div>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--twenty-fifty--mobile' value='20-50' (click)="priceFilter(20, 50)" />
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--twenty-fifty--mobile' value='20-50' (click)="priceFilter(20, 50)" />
                         <label for='price--twenty-fifty--mobile'>$20 - $50</label>
                     </div>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--fifty-hundred--mobile' value='50-100' (click)="priceFilter(50, 100)" />
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--fifty-hundred--mobile' value='50-100' (click)="priceFilter(50, 100)" />
                         <label for='price--fifty-hundred--mobile'>$50 - $100</label>
                     </div>
                     <div>
-                        <input type='radio' name='price--mobile' id='price--hundred--mobile' value='100' (click)="priceFilter(100, infinity)" />
+                        <input type='radio' class='filter-option' name='price--mobile' id='price--hundred--mobile' value='100' (click)="priceFilter(100, infinity)" />
                         <label for='price--hundred--mobile'>$100+</label>
                     </div>
                 </fieldset>
@@ -57,27 +57,27 @@
                 <fieldset>
                     <legend>Category:</legend>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--any--mobile' value='any' (click)="categoryFilter(null)" checked/>
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--any--mobile' value='any' (click)="categoryFilter(null)" checked/>
                         <label for='category--any--mobile'>Any</label>
                     </div>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--alice--mobile' value='alice' (click)="categoryFilter('ALICE')" />
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--alice--mobile' value='alice' (click)="categoryFilter('ALICE')" />
                         <label for='category--alice--mobile'>Alice</label>
                     </div>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--marvel--mobile' value='marvel' (click)="categoryFilter('MARVEL')" />
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--marvel--mobile' value='marvel' (click)="categoryFilter('MARVEL')" />
                         <label for='category--marvel--mobile'>Marvel</label>
                     </div>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--dc--mobile' value='dc' (click)="categoryFilter('DC')" />
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--dc--mobile' value='dc' (click)="categoryFilter('DC')" />
                         <label for='category--dc--mobile'>DC</label>
                     </div>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--archie--mobile' value='archie' (click)="categoryFilter('ARCHEY')" />
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--archie--mobile' value='archie' (click)="categoryFilter('ARCHEY')" />
                         <label for='category--archie--mobile'>Archie</label>
                     </div>
                     <div>
-                        <input type='radio' name='category--mobile' id='category--other--mobile' value='other' (click)="categoryFilter('OTHER')" />
+                        <input type='radio' class='filter-option' name='category--mobile' id='category--other--mobile' value='other' (click)="categoryFilter('OTHER')" />
                         <label for='category--other--mobile'>Other</label>
                     </div>
                 </fieldset>
@@ -86,7 +86,7 @@
             <div class='filter-sidebar__section'>
                 <fieldset>
                     <div class="filter-sidebar__section--recent">
-                        <input type='checkbox' class="filled-in" name='recent--mobile' id='recent--mobile' value='recent' />
+                        <input type='checkbox' class="filled-in filter-option" name='recent--mobile' id='recent--mobile' value='recent' />
                         <label for='recent--mobile'>Only recently added</label>
                     </div>
                 </fieldset>
@@ -104,11 +104,11 @@
                     <fieldset>
                         <legend>Sort by:</legend>
                         <div>
-                            <input type='radio' name='sort--desktop' id='sort--name--desktop' value='name' (click)="nameSort()" checked />
+                            <input type='radio' class='filter-option' name='sort--desktop' id='sort--name--desktop' value='name' (click)="nameSort()" checked />
                             <label for='sort--name--desktop'>Name</label>
                         </div>
                         <div>
-                            <input type='radio' name='sort--desktop' id='sort--price--desktop' value='price' (click)="priceSort()" />
+                            <input type='radio' class='filter-option' name='sort--desktop' id='sort--price--desktop' value='price' (click)="priceSort()" />
                             <label for='sort--price--desktop'>Price</label>
                         </div>
                     </fieldset>
@@ -118,27 +118,27 @@
                     <fieldset>
                         <legend>Price:</legend>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--any--desktop' value='0' (click)="priceFilter(0, infinity)" checked/>
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--any--desktop' value='0' (click)="priceFilter(0, infinity)" checked/>
                             <label for='price--any--desktop'>Any</label>
                         </div>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--ten--desktop' value='10' (click)="priceFilter(0, 10)" />
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--ten--desktop' value='10' (click)="priceFilter(0, 10)" />
                             <label for='price--ten--desktop'>< $10</label>
                         </div>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--ten-twenty--desktop' value='10-20' (click)="priceFilter(10, 20)" />
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--ten-twenty--desktop' value='10-20' (click)="priceFilter(10, 20)" />
                             <label for='price--ten-twenty--desktop'>$10 - $20</label>
                         </div>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--twenty-fifty--desktop' value='20-50' (click)="priceFilter(20, 50)" />
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--twenty-fifty--desktop' value='20-50' (click)="priceFilter(20, 50)" />
                             <label for='price--twenty-fifty--desktop'>$20 - $50</label>
                         </div>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--fifty-hundred--desktop' value='50-100' (click)="priceFilter(50, 100)" />
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--fifty-hundred--desktop' value='50-100' (click)="priceFilter(50, 100)" />
                             <label for='price--fifty-hundred--desktop'>$50 - $100</label>
                         </div>
                         <div>
-                            <input type='radio' name='price--desktop' id='price--hundred--desktop' value='100' (click)="priceFilter(100, infinity)" />
+                            <input type='radio' class='filter-option' name='price--desktop' id='price--hundred--desktop' value='100' (click)="priceFilter(100, infinity)" />
                             <label for='price--hundred--desktop'>$100+</label>
                         </div>
                     </fieldset>
@@ -148,27 +148,27 @@
                     <fieldset>
                         <legend>Category:</legend>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--any--desktop' value='any' (click)="categoryFilter(null)" checked/>
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--any--desktop' value='any' (click)="categoryFilter(null)" checked/>
                             <label for='category--any--desktop'>Any</label>
                         </div>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--alice--desktop' value='alice' (click)="categoryFilter('ALICE')" />
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--alice--desktop' value='alice' (click)="categoryFilter('ALICE')" />
                             <label for='category--alice--desktop'>Alice</label>
                         </div>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--marvel--desktop' value='marvel' (click)="categoryFilter('MARVEL')" />
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--marvel--desktop' value='marvel' (click)="categoryFilter('MARVEL')" />
                             <label for='category--marvel--desktop'>Marvel</label>
                         </div>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--dc--desktop' value='dc' (click)="categoryFilter('DC')" />
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--dc--desktop' value='dc' (click)="categoryFilter('DC')" />
                             <label for='category--dc--desktop'>DC</label>
                         </div>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--archie--desktop' value='archie' (click)="categoryFilter('ARCHIE')" />
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--archie--desktop' value='archie' (click)="categoryFilter('ARCHIE')" />
                             <label for='category--archie--desktop'>Archie</label>
                         </div>
                         <div>
-                            <input type='radio' name='category--desktop' id='category--other--desktop' value='other' (click)="categoryFilter('OTHER')" />
+                            <input type='radio' class='filter-option' name='category--desktop' id='category--other--desktop' value='other' (click)="categoryFilter('OTHER')" />
                             <label for='category--other--desktop'>Other</label>
                         </div>
                     </fieldset>
@@ -177,7 +177,7 @@
                 <div class='filter-sidebar__section'>
                     <fieldset>
                         <div class="filter-sidebar__section--recent">
-                            <input type='checkbox' class="filled-in" name='recent--desktop' id='recent--desktop' value='recent' />
+                            <input type='checkbox' class="filled-in filter-option" name='recent--desktop' id='recent--desktop' value='recent' />
                             <label for='recent--desktop'>Only recently added</label>
                         </div>
                     </fieldset>
