@@ -11,7 +11,6 @@ $(function(){
                 $('#'+parts[0]+'--'+parts[1]+'--'+type).prop('checked', true);
                 break;              
             case 'category':
-                console.log('oops');
                 $('#'+lastCategory+'--'+type).prop('checked', false);
                 lastCategory = parts[0]+'--'+parts[1];
                 $('#'+parts[0]+'--'+parts[1]+'--'+type).prop('checked', true); 
