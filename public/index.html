@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wolfiewocky</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/css/materialize.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--
+TODO
+
+-get site running on bob.info
+-get PHP sorting/rest calls working
+-make cards dynamic
+
+
+
+-convert everything to rems
+-make filter box prettier
+-get filter modal working
+-make filters work
+-dynamically generate cards
+-make FAQ modal
+-make search filtering work
+-build card list from document
+-favicon
+-cheshire smile
+-make wolfie font size scale
+-get new fonts
+-fix jump to top button
+-add dummy submit button so mobile filter so the user has time to select multiple?
+-->
+
+    <header role='banner'>
+        <div class="nav-wrapper">
+            <nav class='row'>
+                <div class='brand nav-wraper col m4 s6' aria-label='Wolfiewocky'>
+                    <div class="wolfie center-align light-blue-text text-accent-3">Wolfiewocky</div>
+                    <img class="smile center-align" src='/images/cheshire.jpg' alt='Cheshire cat smile' />
+                </div>
+
+                <div class="col m8 s6 nav-elements">
+                    <!-- Upper nav row (hidden on large) -->
+                    <div class="row hide-on-large-only">
+                        <!-- Small mobile buttons (small only) -->
+                        <div class="mobile-nav-btns hide-on-med-and-up">
+                            <div class="col s6">
+                                <!-- Make offset-2 s4 s4 when offset works -->
+                                <div class="center-align">
+                                    <button class='search-btn btn-floating blue waves-effect waves-light' type='button'>
+                                        <i class='search-btn--icon small material-icons' alt='Search' />search</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col s6">
+                                <div class="center-align">
+                                    <button class='faq-btn--small btn-floating blue waves-effect waves-light' type='button'>?</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tablet search bar (med only) -->
+                        <div class="tablet-search-bar hide-on-small-only hide-on-large-only input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+
+                    <!-- Lower nav row -->
+                    <div class="lower-nav-row row height-hack valign-wrapper">
+                        <!-- Desktop search bar (large only) -->
+                        <div class="hide-on-med-and-down input-group col l6 valign">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                        </div>
+                        <!-- /input-group -->
+
+                        <!-- View cart -->
+                        <div class="col s12 m6 l3 center-align valign">
+                            <button class='paypal-btn btn blue waves-effect waves-light' type='button'>View Cart</button>
+                        </div>
+
+                        <!-- Big FAQ (hidden on small) -->
+                        <div class="col m6 l3 valign hide-on-small-only">
+                            <button class='faq-btn--big btn blue waves-effect waves-light' type='button'>FAQ</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <app-root></app-root>
+
+    <footer class='page-footer light-blue-text text-accent-3' role='contentinfo'>
+        <div class="container center-align row">
+            <div class="col s12 l6">
+                <a href='mailto:wolfiewock@wolfiewocky.com'>
+                    <i class='tiny material-icons mail-icon' alt='Email: ' />email</i>
+                    wolfiewock@wolfiewocky.com
+                </a>
+            </div>
+
+            <!--button class='jump-btn col s4 l2 btn light-blue hide-on-med-and-down' type='button'>
+            <i class='small material-icons left' alt='Jump to top' />navigation</i>
+            Jump to Top
+        </button-->
+
+            <div class='quote hide-on-med-and-down col l6 center-align'>"This is a rotating quote." - Somebody</div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+    <!-- Custom JS -->
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+
+</html>
