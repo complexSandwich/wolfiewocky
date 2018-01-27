@@ -1,3 +1,6 @@
+var cardTemp = $('#card-template').html();
+var $mainContainer = $('.cards.container');
+
 $(function(){
     var lastCategory = 'category--any', lastPrice = 'price--any';
     $('.filter-option').click(function(e){
@@ -37,20 +40,21 @@ $(window).resize(function(){
 });
 
 //Only open card modals in Medium or Small modes
-function conditionalCardModal(identifier){
+let conditionalCardModal = function(identifier){
     if($(document).width() <= 992)    
-        $('#' + $(identifier).data('target')).openModal();
+        $('#' + $(identifier).data('target')).modal('open');
 };
 
 $(document).ready(function() {
     $('.modal').modal();
 
-    var cardTemp = $('#card-template').html();
-    var $mainContainer = $('.cards.container');
+    fillCards(cards);
+});
 
+let fillCards = function(cards) {
     cards.forEach(function(card) {
-        card.price = '$' + card.price.toFixed(2);
+        card.price_formatted = '$' + card.price.toFixed(2);
         $mainContainer.append(Mustache.render(cardTemp, card));
     });
-});
+};
 

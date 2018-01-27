@@ -217,7 +217,7 @@ TODO
                         <fieldset>
                             <legend>Sort by:</legend>
                             <div>
-                                <input type='radio' class='filter-option' name='sort--desktop' id='sort--name--desktop' value='name' (click)="nameSort()"
+                                <input type='radio' class='filter-option' name='sort--desktop' id='sort--name--desktop' value='name'
                                     checked />
                                 <label for='sort--name--desktop'>Name</label>
                             </div>
@@ -359,7 +359,7 @@ TODO
                         <div class='card--name'>{{name}}</div>
                         <div class="row valign-wrapper">
                             <div class="col push-l1 l4 s12 valign">
-                                <div class='card--price'>{{price}}
+                                <div class='card--price'>{{price_formatted}}
                                     <span class='card--shipping'>+shipping</span>
                                 </div>
                             </div>
@@ -379,7 +379,7 @@ TODO
             <div id="modal{{id}}" class="modal">
                 <div class='center-align light-blue-text text-accent-3'>
                     <div class="valign-wrapper">
-                        <img class="valign" src="assets/images/{{image}}" alt='' />
+                        <img class="valign" src="/images/{{image}}" alt='' />
                     </div>
 
                     <div class="row card--body">
@@ -387,7 +387,7 @@ TODO
                             <div class='card--name'>{{name}}</div>
                             <div class="row valign-wrapper">
                                 <div class="col push-s1 s4 valign">
-                                    <div class='card--price'>{{price}}
+                                    <div class='card--price'>{{price_formatted}}
                                         <span class='card--shipping'>+shipping</span>
                                     </div>
                                 </div>
@@ -416,6 +416,7 @@ TODO
 
     <!-- Custom JS -->
     <script type="text/javascript" src="/js/test-data.js"></script>
+    <script type="text/javascript" src="/js/filter-sort.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
 </body>
 
