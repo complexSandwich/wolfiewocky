@@ -32,7 +32,7 @@ $(window).resize(function(){
     //Close any open modals if the screen is resized to Large
     if($(document).width() > 992){
         $(".modal").modal('close');
-        $(".lean-overlay").hide(); //Above line closes modal, background was still greyed out.
+        // $(".lean-overlay").hide(); //Above line closes modal, background was still greyed out.
     }
 });
 
@@ -40,5 +40,17 @@ $(window).resize(function(){
 function conditionalCardModal(identifier){
     if($(document).width() <= 992)    
         $('#' + $(identifier).data('target')).openModal();
-}
+};
+
+$(document).ready(function() {
+    $('.modal').modal();
+
+    var cardTemp = $('#card-template').html();
+    var $mainContainer = $('.cards.container');
+
+    cards.forEach(function(card) {
+        card.price = '$' + card.price.toFixed(2);
+        $mainContainer.append(Mustache.render(cardTemp, card));
+    });
+});
 

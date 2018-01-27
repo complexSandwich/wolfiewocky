@@ -96,7 +96,238 @@ TODO
         </div>
     </header>
 
-    <app-root></app-root>
+    <main class='content'>
+        <!-- FILTER BUTTON -->
+        <div class="row hide-on-large-only" data-target="modal--filter" onclick="conditionalCardModal(this);">
+            <div class="col s2">&nbsp;
+                <!-- Dummy div because offset is currently broken -->
+            </div>
+            <button class="filter-btn btn col s8 center-align blue waves-effect waves-light">Filter</button>
+        </div>
+
+        <div id="modal--filter" class="modal">
+            <div class='filter-modal col s3' aria-label='Filters and sorting'>
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                    <fieldset>
+                        <legend>Sort by:</legend>
+                        <div>
+                            <input type='radio' class='filter-option' name='sort--mobile' id='sort--name--mobile' value='name' (click)="nameSort()" checked
+                            />
+                            <label for='sort--name--mobile'>Name</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='sort--mobile' id='sort--price--mobile' value='price' (click)="priceSort()"
+                            />
+                            <label for='sort--price--mobile'>Price</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                    <fieldset>
+                        <legend>Price:</legend>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--any--mobile' value='0' (click)="priceFilter(0, infinity)"
+                                checked/>
+                            <label for='price--any--mobile'>Any</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--ten--mobile' value='10' (click)="priceFilter(0, 10)"
+                            />
+                            <label for='price--ten--mobile'>
+                                < $10</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--ten-twenty--mobile' value='10-20' (click)="priceFilter(10, 20)"
+                            />
+                            <label for='price--ten-twenty--mobile'>$10 - $20</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--twenty-fifty--mobile' value='20-50' (click)="priceFilter(20, 50)"
+                            />
+                            <label for='price--twenty-fifty--mobile'>$20 - $50</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--fifty-hundred--mobile' value='50-100' (click)="priceFilter(50, 100)"
+                            />
+                            <label for='price--fifty-hundred--mobile'>$50 - $100</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='price--mobile' id='price--hundred--mobile' value='100' (click)="priceFilter(100, infinity)"
+                            />
+                            <label for='price--hundred--mobile'>$100+</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                    <fieldset>
+                        <legend>Category:</legend>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--any--mobile' value='any' (click)="categoryFilter(null)"
+                                checked/>
+                            <label for='category--any--mobile'>Any</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--alice--mobile' value='alice' (click)="categoryFilter('ALICE')"
+                            />
+                            <label for='category--alice--mobile'>Alice</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--marvel--mobile' value='marvel' (click)="categoryFilter('MARVEL')"
+                            />
+                            <label for='category--marvel--mobile'>Marvel</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--dc--mobile' value='dc' (click)="categoryFilter('DC')"
+                            />
+                            <label for='category--dc--mobile'>DC</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--archie--mobile' value='archie' (click)="categoryFilter('ARCHEY')"
+                            />
+                            <label for='category--archie--mobile'>Archie</label>
+                        </div>
+                        <div>
+                            <input type='radio' class='filter-option' name='category--mobile' id='category--other--mobile' value='other' (click)="categoryFilter('OTHER')"
+                            />
+                            <label for='category--other--mobile'>Other</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class='filter-sidebar__section'>
+                    <fieldset>
+                        <div class="filter-sidebar__section--recent">
+                            <input type='checkbox' class="filled-in filter-option" name='recent--mobile' id='recent--mobile' value='recent' />
+                            <label for='recent--mobile'>Only recently added</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- /filter-sidebar -->
+        </div>
+
+        <div class="row main-content">
+
+            <!-- FILTER SIDEBAR -->
+            <div class="sidebar-wrapper">
+                <div class='filter-sidebar hide-on-med-and-down col s3' aria-label='Filters and sorting'>
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--sort'>
+                        <fieldset>
+                            <legend>Sort by:</legend>
+                            <div>
+                                <input type='radio' class='filter-option' name='sort--desktop' id='sort--name--desktop' value='name' (click)="nameSort()"
+                                    checked />
+                                <label for='sort--name--desktop'>Name</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='sort--desktop' id='sort--price--desktop' value='price' (click)="priceSort()"
+                                />
+                                <label for='sort--price--desktop'>Price</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--price'>
+                        <fieldset>
+                            <legend>Price:</legend>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--any--desktop' value='0' (click)="priceFilter(0, infinity)"
+                                    checked/>
+                                <label for='price--any--desktop'>Any</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--ten--desktop' value='10' (click)="priceFilter(0, 10)"
+                                />
+                                <label for='price--ten--desktop'>
+                                    < $10</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--ten-twenty--desktop' value='10-20' (click)="priceFilter(10, 20)"
+                                />
+                                <label for='price--ten-twenty--desktop'>$10 - $20</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--twenty-fifty--desktop' value='20-50' (click)="priceFilter(20, 50)"
+                                />
+                                <label for='price--twenty-fifty--desktop'>$20 - $50</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--fifty-hundred--desktop' value='50-100' (click)="priceFilter(50, 100)"
+                                />
+                                <label for='price--fifty-hundred--desktop'>$50 - $100</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='price--desktop' id='price--hundred--desktop' value='100' (click)="priceFilter(100, infinity)"
+                                />
+                                <label for='price--hundred--desktop'>$100+</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section filter-sidebar__section--radio filter-sidebar__section--category'>
+                        <fieldset>
+                            <legend>Category:</legend>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--any--desktop' value='any' (click)="categoryFilter(null)"
+                                    checked/>
+                                <label for='category--any--desktop'>Any</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--alice--desktop' value='alice' (click)="categoryFilter('ALICE')"
+                                />
+                                <label for='category--alice--desktop'>Alice</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--marvel--desktop' value='marvel' (click)="categoryFilter('MARVEL')"
+                                />
+                                <label for='category--marvel--desktop'>Marvel</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--dc--desktop' value='dc' (click)="categoryFilter('DC')"
+                                />
+                                <label for='category--dc--desktop'>DC</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--archie--desktop' value='archie' (click)="categoryFilter('ARCHIE')"
+                                />
+                                <label for='category--archie--desktop'>Archie</label>
+                            </div>
+                            <div>
+                                <input type='radio' class='filter-option' name='category--desktop' id='category--other--desktop' value='other' (click)="categoryFilter('OTHER')"
+                                />
+                                <label for='category--other--desktop'>Other</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class='filter-sidebar__section'>
+                        <fieldset>
+                            <div class="filter-sidebar__section--recent">
+                                <input type='checkbox' class="filled-in filter-option" name='recent--desktop' id='recent--desktop' value='recent' />
+                                <label for='recent--desktop'>Only recently added</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- /filter-sidebar -->
+            </div>
+            <!-- /sidebar-wrapper -->
+
+
+
+            <!-- CARDS -->
+            <div class='cards container col s12 l9'>
+            </div>
+            <!-- /cards -->
+        </div>
+        <!-- /main-content -->
+
+        <!--a class="jump-btn__mobile hide-on-large-only btn-floating blue waves-effect waves-light">
+            <i class='tiny material-icons' alt='Jump to top' />navigation</i>
+        </a-->
+    </main>
 
     <footer class='page-footer light-blue-text text-accent-3' role='contentinfo'>
         <div class="container center-align row">
@@ -116,10 +347,75 @@ TODO
         </div>
     </footer>
 
+    <script type='text/template' id='card-template'>
+        <div id="js-modal{{id}}__btn" class="flex-card" attr.data-target="modal{{id}}" onclick="conditionalCardModal(this);">
+            <div class='card center-align light-blue-text text-accent-3'>
+                <div class="valign-wrapper">
+                    <img class="valign" src="/images/{{image}}" alt='' />
+                </div>
+
+                <div class="row card--body">
+                    <div class="col s12">
+                        <div class='card--name'>{{name}}</div>
+                        <div class="row valign-wrapper">
+                            <div class="col push-l1 l4 s12 valign">
+                                <div class='card--price'>{{price}}
+                                    <span class='card--shipping'>+shipping</span>
+                                </div>
+                            </div>
+                            <div class="hide-on-med-and-down col push-l1 l6 valign">
+                                <a href="">
+                                    <button class='paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider hide-on-med-and-down"></div>
+
+                <div class='card--description hide-on-med-and-down'>{{description}}</div>
+            </div>
+            <div id="modal{{id}}" class="modal">
+                <div class='center-align light-blue-text text-accent-3'>
+                    <div class="valign-wrapper">
+                        <img class="valign" src="assets/images/{{image}}" alt='' />
+                    </div>
+
+                    <div class="row card--body">
+                        <div class="col s12">
+                            <div class='card--name'>{{name}}</div>
+                            <div class="row valign-wrapper">
+                                <div class="col push-s1 s4 valign">
+                                    <div class='card--price'>{{price}}
+                                        <span class='card--shipping'>+shipping</span>
+                                    </div>
+                                </div>
+                                <div class="col push-s1 s6 valign">
+                                    <button class='hide-on-small-only paypal-add btn blue waves-effect waves-light' type='button'>Add to cart</button>
+                                    <button class='hide-on-med-and-up paypal-add btn blue waves-effect waves-light' type='button'>+
+                                        <i class="material-icons">shopping_cart</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class='card--description'>{{description}}</div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
     <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/js/mustache.min.js"></script>
 
     <!-- Custom JS -->
+    <script type="text/javascript" src="/js/test-data.js"></script>
     <script type="text/javascript" src="/js/index.js"></script>
 </body>
 
